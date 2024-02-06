@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:quiz_model/view/quizscreen/codingquizsc/codequizscreen.dart';
+import 'package:quiz_model/view/quizscreen/flutterquiz/flutterquiz.dart';
 import 'package:quiz_model/view/quizscreen/question_screen.dart';
+import 'package:quiz_model/view/quizscreen/sciencequiz/sciencequiz.dart';
 
 class Gridscreen extends StatefulWidget {
   const Gridscreen({super.key});
@@ -24,6 +27,12 @@ class _GridscreenState extends State<Gridscreen> {
     "assets/a3.png",
     "assets/a4.png",
   ];
+  final pages = [
+    ScienceQuiz_screen(),
+    FlutterQuiz_screen(),
+    CodeQuiz_screen(),
+    Question_screen()
+  ];
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -34,13 +43,7 @@ class _GridscreenState extends State<Gridscreen> {
           return GestureDetector(
             onTap: () {
               setState(() {
-                print(selectedindex);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Question_screen(),
-                  ),
-                );
+                selectedindex = 0;
               });
             },
             child: Card(
