@@ -146,7 +146,7 @@ class _Question_screenState extends State<Question_screen> {
                   },
                   child: Container(
                     height: 50,
-                    width: double.infinity,
+                    width: 300,
                     decoration: BoxDecoration(
                         color: Color_const.mycustomblue,
                         borderRadius: BorderRadius.circular(15)),

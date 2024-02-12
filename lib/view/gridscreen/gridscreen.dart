@@ -14,7 +14,6 @@ class Gridscreen extends StatefulWidget {
 }
 
 class _GridscreenState extends State<Gridscreen> {
-  int selectedindex = 0;
   var services = [
     "Science",
     "Flutter",
@@ -42,15 +41,41 @@ class _GridscreenState extends State<Gridscreen> {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              setState(() {
-                selectedindex = 0;
-              });
+              if (index == 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScienceQuiz_screen(),
+                  ),
+                );
+              } else if (index == 1) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CodeQuiz_screen(),
+                  ),
+                );
+              } else if (index == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FlutterQuiz_screen(),
+                  ),
+                );
+              } else if (index == 3) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Question_screen(),
+                  ),
+                );
+              }
             },
             child: Card(
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(10),
                     child: Image.asset(
                       images[index],
                       height: 150,
@@ -58,11 +83,14 @@ class _GridscreenState extends State<Gridscreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(0),
                     child: Text(
                       services[index],
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ],

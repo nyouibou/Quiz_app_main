@@ -29,7 +29,7 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "${questionindex + 1}/${questionobject.sportsQuizData.length}",
+              "${questionindex + 1}/${questionobject.flutterQuizData.length}",
               style: TextStyle(color: Color_const.mycustomblue),
             ),
           )
@@ -50,7 +50,7 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
                   child: Padding(
                     padding: const EdgeInsets.all(50.0),
                     child: Text(
-                      questionobject.sportsQuizData[questionindex]["question"],
+                      questionobject.flutterQuizData[questionindex]["question"],
                       style: TextStyle(
                         color: Color_const.mycustomwhite,
                         fontSize: 18,
@@ -69,7 +69,7 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
                           onTap: () {
                             selectedindex = index;
                             if (selectedindex ==
-                                questionobject.sportsQuizData[questionindex]
+                                questionobject.flutterQuizData[questionindex]
                                     ["answer"]) {
                               print(count);
                             }
@@ -92,7 +92,8 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    questionobject.sportsQuizData[questionindex]
+                                    questionobject
+                                            .flutterQuizData[questionindex]
                                         ["options"][index],
                                     style: TextStyle(
                                         color: Color_const.mycustomwhite,
@@ -123,7 +124,7 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
                   onTap: () {
                     if (selectedindex != null &&
                         selectedindex ==
-                            questionobject.sportsQuizData[questionindex]
+                            questionobject.flutterQuizData[questionindex]
                                 ["answer"]) {
                       count++;
                     }
@@ -168,12 +169,12 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
 //answer check
   Color selectedanswer(int index) {
     if (selectedindex != null &&
-        index == questionobject.sportsQuizData[questionindex]["answer"]) {
+        index == questionobject.flutterQuizData[questionindex]["answer"]) {
       return Color_const.mycustomgreen;
     }
     if (selectedindex == index) {
       if (selectedindex ==
-          questionobject.sportsQuizData[questionindex]["answer"]) {
+          questionobject.flutterQuizData[questionindex]["answer"]) {
         return Color_const.mycustomgreen;
       } else {
         return Color_const.mycustomred;
@@ -188,7 +189,7 @@ class _CodeQuiz_screenState extends State<CodeQuiz_screen> {
   answer_icons(int index) {
     if (selectedindex == index) {
       if (selectedindex ==
-          questionobject.sportsQuizData[questionindex]["answer"]) {
+          questionobject.flutterQuizData[questionindex]["answer"]) {
         return Icon(
           Icons.done,
           size: 20,
